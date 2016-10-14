@@ -13,7 +13,7 @@ angular.module('Eggly', [
   $urlRouterProvider.otherwise('/');
 })
 
-.controller('MainCtrl', function($scope) {
+.controller('MainCtrl', function($scope, $state) {
   $scope.hello = 'world';
   
   $scope.categories = [
@@ -39,6 +39,7 @@ angular.module('Eggly', [
   
   function setCurrentCategory(category) {
     $scope.currentCategory = category;
+//    $state.go('eggly.categories.bookmarks', {category:category.name});
     cancelEditting();
     cancelCreating();
   }
