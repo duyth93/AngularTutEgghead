@@ -24,5 +24,6 @@ angular.module('categories.bookmarks', [
   bookmarksListCtrl.currentCategoryName = $stateParams.category;
   bookmarksListCtrl.getCurrentCategory = CategoriesModel.getCurrentCategory();
   bookmarksListCtrl.getCurrentCategoryName = CategoriesModel.getCurrentCategoryName();
+  bookmarksListCtrl.deleteBookmark = BookmarksModel.deleteBookmark;
 })
 ;
