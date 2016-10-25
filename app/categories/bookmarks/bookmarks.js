@@ -15,11 +15,13 @@ angular.module('categories.bookmarks', [
     }
   });
 })
-.controller('BookmarksCtrl', function($stateParams, BookmarksModel){
+.controller('BookmarksCtrl', function($stateParams, BookmarksModel, CategoriesModel){
   var bookmarksListCtrl = this;
-  bookmarksListCtrl.currentCategoryName = $stateParams.category;
+  CategoriesModel.setCurrentCategory($stateParams.category);
   BookmarksModel.getBookmarks().then(function(result){
     bookmarksListCtrl.bookmarks = result;
   });
+  bookmarksListCtrl.getCurrentCategory = CategoriesModel.getCurrentCategory();
+  bookmarksListCtrl.getCurrentCategoryName = CategoriesModel.getCurrentCategoryName();
 })
 ;
